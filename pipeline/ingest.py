@@ -1,3 +1,5 @@
+### Data ingestion functions ###
+
 import pandas as pd
 from pathlib import Path
 
@@ -14,6 +16,9 @@ def ingest_products():
     # 3. Ingest data
     raw_df = pd.read_csv(csv_path)
     print(f"Ingested {len(raw_df)} products from {csv_path}")
+    print(raw_df.head())
 
     return raw_df
 
+if __name__ == "__main__":
+    ingest_products()
