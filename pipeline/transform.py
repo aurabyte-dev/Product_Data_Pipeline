@@ -182,10 +182,11 @@ def reject_products(clean_df):
     reject_condition = (
         (clean_df["id"].isna()) |
         (clean_df["currency"].isna()) |
+        (clean_df["price"].isna()) |
         (clean_df["price"] <= 0) |
         (clean_df["price"] > 50000 )
     )
-    
+
     # Separate
     rejected_df = clean_df[reject_condition].copy()
     valid_df = clean_df[~reject_condition].copy()
@@ -194,6 +195,7 @@ def reject_products(clean_df):
     rejected_df["rejection_reason"] = ""
     rejected_df.loc[rejected_df["id"].isna(), "rejection_reason"] += "Missing ID; "
     rejected_df.loc[rejected_df["currency"].isna(), "rejection_reason"] += "Missing currency; "
+    rejected_df.loc[rejected_df["price"].isna(), "rejection_reason"] += "Missing price; "
     rejected_df.loc[rejected_df["price"] <= 0, "rejection_reason"] += "Invalid price (≤0); "
     rejected_df.loc[rejected_df["price"] > 50000, "rejection_reason"] += "Extreme price (>50k); "
     

@@ -1,11 +1,12 @@
-### Data ingestion functions ###
+""" INGESTION FUNCTION """
 
 import pandas as pd
 from pathlib import Path
 
-def ingest_products():
-    # Load raw products CSV from data/raw/
+# Load raw products CSV from data/raw/
 
+def ingest_products():
+    
     # 1. Find the path
     csv_path = Path("data/raw/products_raw.csv")
 
