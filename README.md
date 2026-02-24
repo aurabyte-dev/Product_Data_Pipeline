@@ -160,7 +160,7 @@ Compares clean vs valid datasets to measure the impact of data quality rules:
 Identifies pricing anomalies and top-priced products:
 
 - **Top 10 Expensive Products**: Highest-priced items in dataset
-- **Top 10 Price Discrepancies**: Extreme outliers (IQR method) + products with missing prices (but with walid ID, currency and name)
+- **Top 10 Price Discrepancies**: Are defined from a data quality perspective, not purely statistical deviation. Extreme outliers (Products with prices outside IQR bounds) + products with missing prices (but with walid ID, currency and name).
 
 ### 3. **Valid Products** (`valid_products.csv`)
 Clean, validated products ready for production use:
